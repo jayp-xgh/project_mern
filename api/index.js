@@ -47,13 +47,14 @@ app.post('/login', async (req, res) => {
             jwt.sign({email: userDoc.email, id:userDoc._id},
                 jwtSecret, {}, (err, token) => { 
                 if(err) throw err;
-                res.cookie('token', token).json('pass ok');
+                res.cookie('token', token).json(userDoc);
             });
         } else {
             res.status(422).json('pass not ok');
         }
     } else{
-        res.json('found');
+        res.json('not found');
     }
 })
+
 app.listen(4000);
