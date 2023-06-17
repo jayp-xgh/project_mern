@@ -14,10 +14,10 @@ export default function RegisterPage() {
             await axios.post('/register', {
                 name,
                 email,
-                password
+                password,
             });
             alert('Registration sucessful, Now you can log in!');
-        }catch(err){
+         }catch(err){
             alert('Registration failed, Plase try again later!');
         }
     }
@@ -26,23 +26,23 @@ export default function RegisterPage() {
         <div className="mt-4 grow flex items-center justify-around ">
             <div className=" mb-64">
                 <h1 className="text-4xl text-center mb-4">Register</h1>
-                <form className="max-w-md mx-auto" onSubmit={registerUser} action="">
+                <form className="max-w-md mx-auto" method='POST' onSubmit={registerUser}>
                     <input type="text" 
                         placeholder="Jayp" 
-                        value={name} 
+                        value={name}
                         onChange={ ev => setName(ev.target.value)}
                     />
                     <input 
-                        type="email" 
+                        type="email"
                         placeholder="your@gmail.com" 
-                        value={email} 
+                        value={email}
                         onChange={ ev => setEmail(ev.target.value)} 
                     />
                     <input 
-                        type="passaword" 
+                        type="passaword"
                         placeholder="passaword" 
-                        value={password} 
-                        onChange={ev => setPassword(ev.target.value)} 
+                        value={password}
+                        onChange={ ev => setPassword(ev.target.value)} 
                     />
                     <button className="primary">Register</button>
                     <div className="text-center py-2 text-gray-500">
